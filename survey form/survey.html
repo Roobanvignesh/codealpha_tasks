@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Survey Form</title>
+        <style>
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  background-image: url('bg.jpg');
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-size: cover;
+  
+}
+
+::selection {
+  color: #fff;
+  background: #ceb721;
+}
+
+.container {
+  width: 830px;
+  background: #98afbf;
+  opacity: 0.9;
+  text-align: center;
+  border-radius: 15px;
+  padding: 40px 45px 10px 45px;
+}
+
+input[type="radio"] {
+  width: 25px;
+  height: 55px;
+  margin-top: -1px;
+  vertical-align: middle;
+}
+
+.radio-left {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.container header {
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0 0 30px 0;
+}
+
+.container .form-outer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.form-outer form {
+  display: flex;
+  width: 400%;
+}
+
+.container .form-outer form {
+  display: flex;
+  width: 400%;
+}
+
+.form-outer form .page {
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.form-outer form .page .title {
+  text-align: left;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.form-outer form .page .field {
+  width: 320px;
+  height: 45px;
+  margin: 45px 0;
+  position: relative;
+}
+
+form .page .field .label {
+  position: absolute;
+  top: -30px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+form .page .field input {
+  height: 100%;
+  width: 250%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+form .page .field button {
+  width: 255%;
+  height: calc(100% + 5px);
+  border: none;
+  background: #ceb721;
+  margin-top: 10px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+
+form .page .field button:hover {
+  background: black;
+}
+
+form .page .btns button {
+  margin-top: -20px !important;
+}
+
+form .page .btns button.prev {
+  margin-right: 0px;
+  margin-bottom: 20px;
+  font-size: 17px;
+}
+
+form .page .btns button.next {
+  margin-right: 3px;
+  margin-bottom: 15px;
+}
+
+form .page .btns button.next {
+  margin-top: 10px;
+}
+
+form .page .field select {
+  width: 255%;
+  height: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.container .progress-bar {
+  display: flex;
+  margin: 40px 0;
+  user-select: none;
+}
+
+.container .progress-bar .step {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.container .progress-bar .step p {
+  font-weight: 500;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.progress-bar .step .bullet {
+  height: 25px;
+  width: 25px;
+  border: 2px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+
+.progress-bar .step .bullet.active {
+  border-color: #edeced;
+  background: #060506;
+}
+
+.progress-bar .step .bullet span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.progress-bar .step .bullet.active span {
+  display: none;
+}
+
+.progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after {
+  position: absolute;
+  content: "";
+  bottom: 11px;
+  right: -160px;
+  height: 3px;
+  width: 144px;
+  background: #262626;
+}
+
+.progress-bar .step .bullet.active:after {
+  background: #f3f2f2;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after {
+  display: none;
+}
+
+.progress-bar .step p.active {
+  color: #0b0a0b;
+  transition: 0.2s linear;
+}
+
+.progress-bar .step .check {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.progress-bar .step .check.active {
+  display: block;
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 230px;
+  }
+  .container header {
+    font-size: 20px;
+  }
+  .form-outer form .page .title {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  form .page .field .label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .form-outer form .page .field {
+    width: 80px;
+    height: 35px;
+    margin: 45px 0;
+  }
+}
+		</style>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <header>Movie survey form</header>
+            <div class="progress-bar">
+                <div class="step">
+                    <p>
+                        personal details
+                    </p>
+                    <div class="bullet">
+                        <span>1</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="step">
+                    <p>
+                      movie rating
+                    </p>
+                    <div class="bullet">
+                        <span>2</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="step">
+                    <p>
+                       Reason 
+                    </p>
+                    <div class="bullet">
+                        <span>3</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="step">
+                    <p>
+                        Feed back
+                    </p>
+                    <div class="bullet">
+                        <span>4</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+            </div>
+            <div class="form-outer">
+                <form action="https://formsubmit.co/3692f31d7e208f1d454a23739ff4dc99" method="POST">
+                    <input type="hidden" name="_url" value="https://yourdomain.co/contact.html.">
+                    <input type="hidden" name="_template" value="table">
+                    <div class="page slide-page">
+                        <div class="title">Basic Info:</div>
+                        <div class="field">
+                            <div class="label"> Name</div>
+                            <input type="text" name="name"
+                                placeholder="First name" required />
+                        </div>
+                        <div class="field">
+                            <div class="label">Email:</div>
+                            <input type="text" name="email"
+                                placeholder="abc123@gmail.com" required/>
+
+                        </div>
+                        <div class="field">
+                            <div class="label">Phone No:</div>
+                            <input type="Number" name="phone-no"
+                                placeholder="1234567890" required/>
+                        </div>
+                        <div class="field">
+                          <div class="label">Age</div>
+                          <input type="text" name="age"
+                              placeholder="Age" required />
+                      </div>
+                        
+                        <div class="field">
+                            <button class="firstNext next">Next</button>
+                        </div>
+                    </div>
+                    <div class="page">
+                      <div class="field">
+                        <div class="label">Gender</div>
+                        <select>
+                            <option value="starter" selected>Choose your
+                                gender
+                            </option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Defective ones</option>
+                        </select>
+                    </div>
+                        <div class="field">
+                          <div class="label">Movie name</div>
+                          <input type="text" name="movie"
+                              placeholder="movie name" required/>
+                      </div>
+                      <div class="field">
+                        <div class="label">How was the movie?</div>
+                        <input type="text" name="rating"
+                            placeholder="rating" required/>
+                    </div>
+                        <div class="field btns">
+                            <button class="prev-1 prev">Previous</button>
+                            <button class="next-1 next">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="page">
+                        <div class="title">What is the most important reason that you want to see a movie?</div> <br>
+                        <div class="radio-left">
+                            <input type="radio" name="radio2">&nbsp;&nbsp;&nbsp;&nbsp;
+                            Trailers cut
+                            <br> <br>
+                            <input type="radio" name="radio2">&nbsp;&nbsp;&nbsp;&nbsp;
+                            Cast and crew <br> <br>
+                            <input type="radio" name="radio2">&nbsp;&nbsp;&nbsp;&nbsp;
+                            Recommdations <br><br>
+                            <input type="radio" name="radio2">&nbsp;&nbsp;&nbsp;&nbsp;
+                            public review <br> <br>
+                            <input type="radio" name="radio2">&nbsp;&nbsp;&nbsp;&nbsp;
+                            others
+                            <br>
+                        </div>
+                        <div class="field btns">
+                            <button class="prev-2 prev">Previous</button>
+                            <button class="next-2 next">Next</button>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="title">movie review</div> <br>
+                        <textarea name="feedback" rows="20" cols="125"
+                            placeholder="You can write about the plus and minus of the movie."></textarea>
+                        <br>
+                        <div class="field btns">
+                            <button class="prev-3 prev">Previous</button>
+                            <button class="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <script>
+			const slidePage = document.querySelector(".slide-page");
+				const nextBtnFirst = document.querySelector(".firstNext");
+				const prevBtnSec = document.querySelector(".prev-1");
+				const nextBtnSec = document.querySelector(".next-1");
+				const prevBtnThird = document.querySelector(".prev-2");
+				const nextBtnThird = document.querySelector(".next-2");
+				const prevBtnFourth = document.querySelector(".prev-3");
+				const submitBtn = document.querySelector(".submit");
+				const progressText = document.querySelectorAll(".step p");
+				const progressCheck = document.querySelectorAll(".step .check");
+				const bullet = document.querySelectorAll(".step .bullet");
+				let current = 1;
+				nextBtnFirst.addEventListener("click", function (event) {
+				  event.preventDefault();
+				  slidePage.style.marginLeft = "-25%";
+				  bullet[current - 1].classList.add("active");
+				  progressCheck[current - 1].classList.add("active");
+				  progressText[current - 1].classList.add("active");
+				  current += 1;
+				});
+				nextBtnSec.addEventListener("click", function (event) {
+				  event.preventDefault();
+				  slidePage.style.marginLeft = "-50%";
+				  bullet[current - 1].classList.add("active");
+				  progressCheck[current - 1].classList.add("active");
+				  progressText[current - 1].classList.add("active");
+				  current += 1;
+				});
+				nextBtnThird.addEventListener("click", function (event) {
+				  event.preventDefault();
+				  slidePage.style.marginLeft = "-75%";
+				  bullet[current - 1].classList.add("active");
+				  progressCheck[current - 1].classList.add("active");
+				  progressText[current - 1].classList.add("active");
+				  current += 1;
+				});
+				submitBtn.addEventListener("click", function () {
+				  bullet[current - 1].classList.add("active");
+				  progressCheck[current - 1].classList.add("active");
+				  progressText[current - 1].classList.add("active");
+				  current += 1;
+				  setTimeout(function () {
+					alert("Your Form Successfully Signed up");
+					location.reload();
+				  }, 800);
+				});
+				prevBtnSec.addEventListener("click", function (event) {
+				  event.preventDefault();
+				  slidePage.style.marginLeft = "0%";
+				  bullet[current - 2].classList.remove("active");
+				  progressCheck[current - 2].classList.remove("active");
+				  progressText[current - 2].classList.remove("active");
+				  current -= 1;
+				});
+				prevBtnThird.addEventListener("click", function (event) {
+				  event.preventDefault();
+				  slidePage.style.marginLeft = "-25%";
+				  bullet[current - 2].classList.remove("active");
+				  progressCheck[current - 2].classList.remove("active");
+				  progressText[current - 2].classList.remove("active");
+				  current -= 1;
+				});
+				prevBtnFourth.addEventListener("click", function (event) {
+				  event.preventDefault();
+				  slidePage.style.marginLeft = "-50%";
+				  bullet[current - 2].classList.remove("active");
+				  progressCheck[current - 2].classList.remove("active");
+				  progressText[current - 2].classList.remove("active");
+				  current -= 1;
+				});</script>
+        </body>
+
+    </html>
