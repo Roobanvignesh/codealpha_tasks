@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 1em;
+    background-image: url('rvg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5em 7%;
+    border-bottom: var(--border);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+}
+.header .logo img{
+    height: 6rem;
+    
+}
+.header a{
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: #fff;
+    align-items: center;
+}
+.header h1{
+    text-align: center;
+    position: absolute;
+    margin-left: 500px;
+}
+.login_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.form{
+    width: 23em;
+    padding: 2em;
+    border-radius: 1em;
+    box-shadow: 0 10px 25px rgba(90, 100,100,.2);
+}
+.form_title{
+    font-weight: 100;
+    margin-bottom: 1.3em;
+}
+.form_div{
+    position: relative;
+    height: 3em;
+    margin-bottom: 1.6em;
+}
+.form_input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    border: .1em solid #dadce0;
+    border-radius: .5em;
+    outline: none;
+    z-index: 1;
+    background: none;
+}
+.form_label{
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    padding: 0 .25em;
+    background: #fff;
+    color: #80868b;
+    font-size: 1em;
+    transition: .4s;
+}
+.form_button{
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    padding: 1em 2em;
+    outline: none;
+    border: none;
+    background:black;
+    color: #fff;
+    font-size: 1em;
+    border-radius: .5em;
+    cursor: pointer;
+    transition: .4s;
+    margin-top: 6.3em;
+    opacity: 0.3;
+    pointer-events: none;
+}
+.form input.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+.form_button:hover{
+    transform: scale(0.90);
+    box-shadow: 0 5px 5px rgba(0, 0,0,0.20);
+}
+.form_input:focus + .form_label{
+    top: -.5em;
+    left: .8em;
+    color: rgb(28, 164, 248);
+    font-size: .80em;
+    font-weight: 600;
+    z-index: 5;
+}
+.form_input:not(::placeholder-shown).form_input:not(:focus) + .form_label{
+    top: -.5em;
+    left: -.5em;
+    font-size: .80em;
+    font-weight: 600;
+    z-index: 5;
+}
+.form_input:focus{
+    border: .1em solid rgb(28, 164, 248);
+}
+.form_input #captcha .preview{
+    color: #555;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 8px;
+    border: 1px dashed #888;
+    border-radius: .5em;
+    margin-bottom: 1.6em;
+}
+.form_input_captcha{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    border: .1em solid #dadce0;
+    border-radius: .5em;
+    outline: none;
+    padding: 1em;
+    z-index: 1;
+    background: none;
+}
+.form_label_captcha{
+    position: absolute;
+    left: 1em;
+    top: 5.2em;
+    padding: 0.25em;
+    background: #fff;
+    color: #80868b;
+    font-size: 1em;
+    transition: .4s;
+}
+.form_input_captcha:focus + .form_label_captcha{
+    top: 4.7em;
+    left: .8em;
+    color: rgb(28, 164, 248);
+    font-size: .80em;
+    font-weight: 600;
+    z-index: 5;
+}
+.form_input_captcha:not(::placeholder-shown).form_input_captcha:not(:focus) + .form_label_captcha{
+    top: 4.6em;
+    left: .8em;
+    font-size: .80em;
+    font-weight: 600;
+    z-index: 5;
+}
+.login_form #captcha .preview{
+    color: #555;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 8px;
+    border: 1px dashed #888;
+    border-radius: .5em;
+    margin-bottom: 1.6em;
+}
+.login_form #captcha .preview span{
+    display: inline-block;
+    user-select: none;
+}
+.login_form #captcha .captcha_form{
+    display: flex;
+}
+.login_form #captcha .captcha_form input{
+    width: 100%;
+    font-size: 1em;
+    border-radius: .5em;
+    outline: none;
+    padding: 1em;
+    z-index: 1;
+    background: none;
+}
+
+.captcha_refresh{
+    width: 40px;
+    border: none;
+    outline: none;
+    background: #888;
+    color: #eee;
+    cursor:pointer;
+    border-radius: .5em;
+    margin-left: 5px;
+    transition: .4s;
+}
+.captcha_refresh:hover{
+    transition: .4s;
+    transform: scale(0.90);
+}
+.form_input_captcha{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    border: .1em solid;
+}
