@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="em">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            captcha
+        </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <header class="header">
+            <a href="#" class="logo">
+                <img src="1.jpg" alt="">
+            </a>
+            <h1>University result portal <br>
+            Office of the controller of examinations</h1>
+        </header>
+        <div class="login_form">
+            <form action="#" class="form">
+                <h1 class="form_title">Student login</h1>
+
+                <div class="form_div">
+                    <input type="text" class="form_input" placeholder="  REG NO">
+                
+            </div>
+
+            <div class="form_div">
+                <input type="date" class="form_input" placeholder=" DATE OF BIRTH">
+        
+        </div>
+
+        <div id="captcha" class="form_div">
+            <div class="preview"></div>
+                <div class="captcha_form">
+                    <input type="text" id="captcha_form" class="form_input_captcha" placeholder="  ENTER CAPTCHA">
+
+                    <button class="captcha_refresh">
+                        <i class="fa fa-refresh"></i>
+                    </button>
+                </div>
+        </div>
+        <input type="submit" class="form_button" value="SUBMIT">
+            </form>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
